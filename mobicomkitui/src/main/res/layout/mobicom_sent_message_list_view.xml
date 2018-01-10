@@ -51,6 +51,8 @@
             <include layout="@layout/mobicom_chat_location_view" />
             <include layout="@layout/applozic_document_attachment" />
 
+            <include layout="@layout/pf_product_preview_layout" />
+
         <ImageView
             android:id="@+id/sentOrReceivedIcon"
             android:layout_width="20dp"

@@ -321,6 +321,12 @@ public class ConversationActivity extends AppCompatActivity implements MessageCo
         return false;
     }
 
+    // PF START
+    protected ConversationUIService getConversationUIService() {
+        return new ConversationUIService(this);
+    }
+    // PF END
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -340,7 +346,10 @@ public class ConversationActivity extends AppCompatActivity implements MessageCo
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         baseContactService = new AppContactService(this);
-        conversationUIService = new ConversationUIService(this);
+        // PF START
+        conversationUIService = getConversationUIService();
+        //conversationUIService = new ConversationUIService(this);
+        // PF END
         mobiComMessageService = new MobiComMessageService(this, MessageIntentService.class);
         quickConversationFragment = new MobiComQuickConversationFragment();
         connectivityReceiver = new ConnectivityReceiver();
